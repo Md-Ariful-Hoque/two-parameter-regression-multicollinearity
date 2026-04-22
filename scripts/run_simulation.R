@@ -1,14 +1,12 @@
 # Main simulation script
 
-run_simulation <- function(n, p, rho) {
-  data.frame(
-    n = n,
-    p = p,
-    rho = rho,
-    result = rnorm(1)
-  )
-}
+library(MASS)
 
-results <- run_simulation(50, 5, 0.9)
+# Load functions
+source("../R/functions.R")
 
-write.csv(results, "results/output.csv", row.names = FALSE)
+# Run simulation
+results <- run_simulation(n = 50, p = 5, rho = 0.9)
+
+# Save results
+write.csv(results, "../results/output.csv", row.names = FALSE)
